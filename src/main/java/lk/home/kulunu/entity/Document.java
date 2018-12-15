@@ -1,0 +1,33 @@
+package lk.home.kulunu.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class Document implements Serializable {
+
+        @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int fileId;
+
+
+    private String fileName;
+
+    private String fileDownloadUri;
+    private String fileType;
+    private long size;
+
+
+}
