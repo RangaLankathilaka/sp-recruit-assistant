@@ -5,10 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -23,6 +24,21 @@ public class Candidate implements Serializable {
     private String candidateAddress;
     private int andidateContact;
     private String candidateEmail;
+    @Temporal(TemporalType.DATE)
     private Date candidateBday;
+
+    @OneToMany(mappedBy = "candidate",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
+    private List<Education> educations=new ArrayList<>();
+
+    @OneToMany(mappedBy = "candidate",cascade = {CascadeType.ALL,CascadeType.MERGE,CascadeType.REMOVE})
+    private List<Experience> experiences=new ArrayList<>();
+
+    @OneToMany(mappedBy = "candidate",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
+    private List<Document> documents=new ArrayList<>();
+
+    @OneToMany(mappedBy = "candidate",cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE})
+    private List<Company_Candidate> company_candidate=new ArrayList<>();
+
+
 
 }

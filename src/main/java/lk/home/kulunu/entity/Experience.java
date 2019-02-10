@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -23,4 +20,8 @@ public class Experience implements Serializable {
     private String companyName;
     private String designation;
     private double period;
+
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinColumn(name="candidateNic",referencedColumnName = "candidateNic")
+    private Candidate candidate;
 }

@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -22,7 +19,13 @@ public class Education implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int educationId;
     private String schoolName;
+    @Temporal(TemporalType.DATE)
     private Date beginDate;
+    @Temporal(TemporalType.DATE)
     private Date endDate;
-    private double GPA;
+    private double gpa;
+
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinColumn(name="candidateNic",referencedColumnName = "candidateNic")
+    private Candidate candidate;
 }

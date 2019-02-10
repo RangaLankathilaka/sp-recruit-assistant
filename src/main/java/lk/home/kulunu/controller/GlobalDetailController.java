@@ -1,8 +1,8 @@
 package lk.home.kulunu.controller;
 
 
-import lk.home.kulunu.dto.CandidatedetailDTO;
-import lk.home.kulunu.dto.CompanyDetailDTO;
+import lk.home.kulunu.dto.CandidateDTO;
+import lk.home.kulunu.dto.Company_CandidateDTO;
 import lk.home.kulunu.dto.ResponseMessage;
 
 import lk.home.kulunu.service.CandidateDetailService;
@@ -34,7 +34,7 @@ public class GlobalDetailController {
     @GetMapping(value = "/download-candidate-detail")
     public ResponseEntity downloadTemplate() throws IOException {
 
-        File returnFile = supportDataProcessingService.GenerateExcelFile(CandidatedetailDTO.class,"CandidateDetails");
+        File returnFile = supportDataProcessingService.GenerateExcelFile(CandidateDTO.class,"CandidateDetails");
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"candidate-details.xlsx\"")
                 .body(FileUtils.readFileToByteArray(returnFile));
@@ -43,7 +43,7 @@ public class GlobalDetailController {
     @GetMapping(value = "/download-company-detail")
     public ResponseEntity  downloadInvoice() throws IOException {
 
-        File returnFile = supportDataProcessingService.GenerateExcelFile(CompanyDetailDTO.class, "CompanyDetails");
+        File returnFile = supportDataProcessingService.GenerateExcelFile(Company_CandidateDTO.class, "CompanyDetails");
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"company-detail.xlsx\"")
                 .body(FileUtils.readFileToByteArray(returnFile));
@@ -57,7 +57,7 @@ public class GlobalDetailController {
 
         try {
 
-            meassage.setData(supportDataProcessingService.readExcelFile(CandidatedetailDTO.class, file,"CandidateDetails"));
+            meassage.setData(supportDataProcessingService.readExcelFile(CandidateDTO.class, file,"CandidateDetails"));
             meassage.setStatusCode(HttpStatus.OK.value());
             return ResponseEntity.ok(meassage);
 
@@ -74,7 +74,7 @@ public class GlobalDetailController {
     public ResponseEntity<?> getPurchaseOrder(@RequestParam("file") MultipartFile file) {
 
         try {
-            meassage.setData(supportDataProcessingService.readExcelFile(CompanyDetailDTO.class, file,"CompanyDetails"));
+            meassage.setData(supportDataProcessingService.readExcelFile(Company_CandidateDTO.class, file,"CompanyDetails"));
             meassage.setStatusCode(HttpStatus.OK.value());
 
             return ResponseEntity.ok(meassage);

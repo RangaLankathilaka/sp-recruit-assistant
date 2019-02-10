@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -18,7 +15,7 @@ import java.io.Serializable;
 @ToString
 public class Document implements Serializable {
 
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int fileId;
 
@@ -28,6 +25,10 @@ public class Document implements Serializable {
     private String fileDownloadUri;
     private String fileType;
     private long size;
+
+    @ManyToOne
+    @JoinColumn(name="candidateNic",referencedColumnName = "candidateNic")
+    private Candidate candidate;
 
 
 }

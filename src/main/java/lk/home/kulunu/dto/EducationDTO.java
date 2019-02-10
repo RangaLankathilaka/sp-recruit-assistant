@@ -19,5 +19,5 @@ public class EducationDTO implements Serializable {
     private String schoolName;
     private Date beginDate;
     private Date endDate;
-    private double GPA;
+    private double gpa;
 }
