@@ -61,3 +61,54 @@
 	]
   
 }
+
+
+
+
+//third>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+{"candidateNic":"c002",
+    "candidateName":"Ranga",
+    "candidateAddress":"Ingiriya",
+	"andidateContact":"0658578",
+    "candidateEmail":"lanka@gmail",
+   "candidateBday":"2018-05-11",
+    "experienceDTOList": [
+  {
+  
+    "companyName": "IJSE",
+    "designation": "SE",
+    "period":1.2
+   
+  },
+   {
+
+    "companyName": "IJSE",
+    "designation": "SE",
+    "period":1.3
+   
+  }
+],
+"educationDTOList":[
+	
+	{
+		"schoolName":"wayamba",
+		"beginDate":"2018-05-11",
+		"endDate":"2018-05-11",
+		"gpa":3.0
+	}
+	
+	
+	],
+	"company_candidateDTOS":[
+		{
+			"companyId":"com001",
+			"candidateNic":"c002",
+			"applyDate":"2018-05-11"
+		}
+		]
+  
+}
+

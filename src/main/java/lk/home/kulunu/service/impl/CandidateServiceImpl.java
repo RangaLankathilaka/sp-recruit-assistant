@@ -1,15 +1,9 @@
 package lk.home.kulunu.service.impl;
 
-import lk.home.kulunu.dto.CandidateDTO;
-import lk.home.kulunu.dto.Company_CandidateDTO;
-import lk.home.kulunu.dto.EducationDTO;
-import lk.home.kulunu.dto.ExperienceDTO;
-import lk.home.kulunu.entity.Candidate;
-import lk.home.kulunu.entity.Company_Candidate;
-import lk.home.kulunu.entity.Education;
-import lk.home.kulunu.entity.Experience;
+import lk.home.kulunu.dto.*;
+import lk.home.kulunu.entity.*;
 import lk.home.kulunu.repository.CandidateRepository;
-import lk.home.kulunu.repository.EducationRepository;
+import lk.home.kulunu.repository.Dao;
 import lk.home.kulunu.repository.ExperienceRepository;
 import lk.home.kulunu.service.CandidateService;
 import org.springframework.beans.BeanUtils;
@@ -26,6 +20,11 @@ public class CandidateServiceImpl implements CandidateService {
 
     @Autowired
     private CandidateRepository candidateRepository;
+    @Autowired
+    private Dao dao;
+
+    @Autowired
+    private ExperienceRepository experienceRepository;
 
 
     @Transactional(readOnly = true)
@@ -34,35 +33,8 @@ public class CandidateServiceImpl implements CandidateService {
 
         List<Candidate> candidates = candidateRepository.findAll();
         List<CandidateDTO> candidateDTOS = new ArrayList<>();
+        return findAll(candidates, candidateDTOS);
 
-
-        for (int i = 0; i < candidates.size(); i++) {
-            List<ExperienceDTO> experienceDTOS = new ArrayList<>();
-            List<EducationDTO> educationDTOList=new ArrayList<>();
-            candidateDTOS.add(new CandidateDTO());
-            BeanUtils.copyProperties(candidates.get(i), candidateDTOS.get(i));
-
-            //fetch experience
-            List<Experience> experiences = candidates.get(i).getExperiences();
-            for (int j = 0; j < experiences.size(); j++) {
-                experienceDTOS.add(new ExperienceDTO());
-                BeanUtils.copyProperties(experiences.get(j), experienceDTOS.get(j));
-
-            }
-            candidateDTOS.get(i).setExperienceDTOList(experienceDTOS);
-
-           // fetch education
-            List<Education> educations = candidates.get(i).getEducations();
-            for(int k=0;k<educations.size();k++){
-               educationDTOList.add(new EducationDTO());
-                BeanUtils.copyProperties(educations.get(k),educationDTOList.get(k));
-            }
-           candidateDTOS.get(i).setEducationDTOList(educationDTOList);
-
-
-        }
-
-        return candidateDTOS;
     }
 
     @Transactional(readOnly = true)
@@ -155,16 +127,20 @@ public class CandidateServiceImpl implements CandidateService {
             candidate.setEducations(educations);
 
         }
-//
-//        if(candidateDTO.getCompany_candidateDTOS()!=null){
-//            List<Company_CandidateDTO> company_candidateDTOList = candidateDTO.getCompany_candidateDTOS();
-//            List<Company_Candidate> company_candidates=new ArrayList<>();
-//            for (int i=0;i<company_candidateDTOList.size();i++){
-//                company_candidates.add(new Company_Candidate());
-//                BeanUtils.copyProperties(company_candidateDTOList.get(i),company_candidates.get(i));
-//            }
-//            candidate.setCompany_candidate(company_candidates);
-//        }
+
+        //comany_candidate details
+        if (candidateDTO.getCompany_candidateDTOS() != null) {
+            List<Company_CandidateDTO> company_candidateDTOList = candidateDTO.getCompany_candidateDTOS();
+            List<Company_Candidate> company_candidates = new ArrayList<>();
+
+            for (Company_CandidateDTO company_candidateDTO : company_candidateDTOList) {
+                Company_Candidate company_candidate = new Company_Candidate(company_candidateDTO.getCompanyId(), company_candidateDTO.getCandidateNic(), company_candidateDTO.getApplyDate());
+                company_candidates.add(company_candidate);
+            }
+
+            candidate.setCompany_candidate(company_candidates);
+
+        }
 
 
         candidateRepository.save(candidate);
@@ -187,4 +163,97 @@ public class CandidateServiceImpl implements CandidateService {
         candidateRepository.deleteById(candidateNic);
         return true;
     }
+
+    @Override
+    public List<CandidateDTO> cabdidateAddressLike(String candidateAddress) {
+        List<Candidate> candidates = candidateRepository.cabdidateAddressLike(candidateAddress + "%");
+        List<CandidateDTO> candidateDTOS = new ArrayList<>();
+        return findAll(candidates, candidateDTOS);
+    }
+
+    @Override
+    public List<ExperienceDTO> candidateExperiance(double candidateExperiance) {
+//        EntityManagerFactory emf;
+//        EntityManager em = emf.createEntityManager();
+//        em.getTransaction().begin();
+//            List postDTOs = em
+//            .createNativeQuery(
+//                    "select " +
+//                            "       p.id as \"id\", " +
+//                            "       p.title as \"title\" " +
+//                            "from Post p " +
+//                            "where p.created_on > :fromTimestamp")
+//
+//            .unwrap( org.hibernate.query.NativeQuery.class )
+//            .setResultTransformer( Transformers.aliasToBean( Test.class ) )
+//            .getResultList();
+
+
+
+
+        List<Experience> experiences = experienceRepository.candidateExperiance(candidateExperiance);
+        List<ExperienceDTO> experienceDTOS=new ArrayList<>();
+        System.out.println(experiences.size());
+
+        Experience dduaVo = (Experience) experiences.get(0);
+        System.out.println(dduaVo);
+//        for(int test=0;test<experiences.size();test++){
+//            System.out.println(experiences.get(test));
+//        }
+
+       // ExperienceDTO experienceDTO = new ExperienceDTO();
+
+        //System.out.println(experiences);
+//        for (Experience experience : experiences) {
+//            ExperienceDTO experienceDTO = new ExperienceDTO(experience.getExperienceId(), experience.getCompanyName(), experience.getDesignation(), experience.getPeriod());
+//            System.out.println(experienceDTO);
+//        }
+
+
+        for (int i=0;i<experiences.size();i++){
+            experienceDTOS.add(new ExperienceDTO());
+            BeanUtils.copyProperties(experiences.get(i),experienceDTOS.get(i));
+        }
+
+        return experienceDTOS;
+    }
+
+
+    public List<CandidateDTO> findAll(List<Candidate> candidates, List<CandidateDTO> candidateDTOS) {
+        for (int i = 0; i < candidates.size(); i++) {
+            List<ExperienceDTO> experienceDTOS = new ArrayList<>();
+            List<EducationDTO> educationDTOList = new ArrayList<>();
+            candidateDTOS.add(new CandidateDTO());
+            BeanUtils.copyProperties(candidates.get(i), candidateDTOS.get(i));
+
+            //fetch experience
+            List<Experience> experiences = candidates.get(i).getExperiences();
+            for (int j = 0; j < experiences.size(); j++) {
+                experienceDTOS.add(new ExperienceDTO());
+                BeanUtils.copyProperties(experiences.get(j), experienceDTOS.get(j));
+
+            }
+            candidateDTOS.get(i).setExperienceDTOList(experienceDTOS);
+
+            // fetch education
+            List<Education> educations = candidates.get(i).getEducations();
+            for (int k = 0; k < educations.size(); k++) {
+                educationDTOList.add(new EducationDTO());
+                BeanUtils.copyProperties(educations.get(k), educationDTOList.get(k));
+            }
+            candidateDTOS.get(i).setEducationDTOList(educationDTOList);
+
+
+        }
+
+        return candidateDTOS;
+    }
+
+
+    public List<ExperiancePeriodDTO> fetchExperiencePeriod(double candidateExperiance){
+        return dao.fetchExperiencePeriod(candidateExperiance);
+    }
+
+
+
 }

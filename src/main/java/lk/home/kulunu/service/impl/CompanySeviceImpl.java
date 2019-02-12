@@ -67,4 +67,5 @@ public class CompanySeviceImpl implements CompanyService {
         companyRepository.deleteById(companyId);
         return true;
     }
+
 }

@@ -1,7 +1,7 @@
 package lk.home.kulunu.controller;
 
 import lk.home.kulunu.dto.CandidateDTO;
-import lk.home.kulunu.dto.ExperienceDTO;
+import lk.home.kulunu.dto.ExperiancePeriodDTO;
 import lk.home.kulunu.service.CandidateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +25,17 @@ public class CandidateController {
     public CandidateDTO findCustomer(@PathVariable("candidateNic") String candidateNic) {
         return candidateService.findCandidate(candidateNic);
     }
+
+    @GetMapping(params = {"action=search", "candidateAddress"})
+    public List<CandidateDTO> findCustomerAddressLike(@RequestParam("candidateAddress") String candidateAddress) {
+        return candidateService.cabdidateAddressLike(candidateAddress);
+    }
+
+    @GetMapping(params = {"action=search", "candidateExperiance"})
+    public List<ExperiancePeriodDTO> candidateExperiance(@RequestParam("candidateExperiance") double candidateExperiance) {
+        return candidateService.fetchExperiencePeriod(candidateExperiance);
+    }
+
 
 
     @PutMapping(value = "/{candidateNic}")
