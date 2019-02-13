@@ -1,8 +1,9 @@
 package lk.home.kulunu.service;
 
 import lk.home.kulunu.dto.CandidateDTO;
-import lk.home.kulunu.dto.ExperienceDTO;
 import lk.home.kulunu.dto.ExperiancePeriodDTO;
+import lk.home.kulunu.entity.Candidate;
+
 
 import java.util.List;
 
@@ -20,7 +21,17 @@ public interface CandidateService {
 
     List<CandidateDTO> cabdidateAddressLike(String candidateAddress);
 
-    List<ExperiancePeriodDTO> fetchExperiencePeriod(double candidateExperiance);
+    List<CandidateDTO> cabdidateCoreLanguage(String corelanguage);
 
-    public List<ExperienceDTO> candidateExperiance(double candidateExperiance);
+    List<CandidateDTO> cabdidateDevelopField(String developField);
+
+    List<CandidateDTO> cabdidateCoreLanguageAndField(String corelanguage,String developField);
+
+    List<CandidateDTO> getCandidateExperience(double candidateExperiance);
+
+    List<CandidateDTO> getExperiencePeriodandCoreLanguage(double candidateExperiance, String coreLanguage);
+
+    List<CandidateDTO> getExperiencePeriodanddevelopField(double candidateExperiance,String developField);
+
+    List<CandidateDTO> getExperienceLanguageField(double candidateExperiance,String coreLanguage,String developField);
 }

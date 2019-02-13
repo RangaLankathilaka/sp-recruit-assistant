@@ -24,6 +24,10 @@ public class Candidate implements Serializable {
     private String candidateAddress;
     private int andidateContact;
     private String candidateEmail;
+    private String coreLanguage;
+    private String frontEndLanguages;
+    private String backEndLanguages;
+    private String developField;
     @Temporal(TemporalType.DATE)
     private Date candidateBday;
 

@@ -1,9 +1,12 @@
 package lk.home.kulunu.service.impl;
 
 import lk.home.kulunu.dto.*;
-import lk.home.kulunu.entity.*;
+import lk.home.kulunu.entity.Candidate;
+import lk.home.kulunu.entity.Company_Candidate;
+import lk.home.kulunu.entity.Education;
+import lk.home.kulunu.entity.Experience;
 import lk.home.kulunu.repository.CandidateRepository;
-import lk.home.kulunu.repository.Dao;
+import lk.home.kulunu.repository.CustomRepository;
 import lk.home.kulunu.repository.ExperienceRepository;
 import lk.home.kulunu.service.CandidateService;
 import org.springframework.beans.BeanUtils;
@@ -13,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -21,7 +25,7 @@ public class CandidateServiceImpl implements CandidateService {
     @Autowired
     private CandidateRepository candidateRepository;
     @Autowired
-    private Dao dao;
+    private CustomRepository customRepository;
 
     @Autowired
     private ExperienceRepository experienceRepository;
@@ -42,36 +46,12 @@ public class CandidateServiceImpl implements CandidateService {
     public CandidateDTO findCandidate(String candidateNic) {
         Candidate candidate = candidateRepository.findById(candidateNic).get();
 
-//retrieve candidate detail with bean util
+
         CandidateDTO candidateDTO = new CandidateDTO();
 
-        List<Experience> experiences = candidate.getExperiences();
+        return findById(candidateDTO, candidate);
 
 
-        List<ExperienceDTO> experienceDTOS = new ArrayList<>();
-
-        BeanUtils.copyProperties(candidate, candidateDTO);
-
-        //fetch experience list
-        for (int i = 0; i < experiences.size(); i++) {
-            experienceDTOS.add(new ExperienceDTO());
-            BeanUtils.copyProperties(experiences.get(i), experienceDTOS.get(i));
-
-        }
-        candidateDTO.setExperienceDTOList(experienceDTOS);
-        //fetch education list
-        List<Education> educations = candidate.getEducations();
-        List<EducationDTO> educationDTOList = new ArrayList<>();
-        for (int i = 0; i < educations.size(); i++) {
-            educationDTOList.add(new EducationDTO());
-            BeanUtils.copyProperties(educations.get(i), educationDTOList.get(i));
-        }
-
-
-        candidateDTO.setEducationDTOList(educationDTOList);
-
-
-        return candidateDTO;
     }
 
     @Override
@@ -80,10 +60,15 @@ public class CandidateServiceImpl implements CandidateService {
             throw new RuntimeException("Candidate IDs are mismatched");
         }
 
+        System.out.println(candidateDTO.getBackEndLanguages());
         Candidate candidate = new Candidate();
         BeanUtils.copyProperties(candidateDTO, candidate);
         String nic = candidateDTO.getCandidateNic();
 
+
+
+       // saveBackEndLanguages(candidateDTO);
+       // saveFrontEndLanguages(candidateDTO);
 
         if (candidateDTO.getExperienceDTOList() != null) {
             List<ExperienceDTO> experienceDTOList = candidateDTO.getExperienceDTOList();
@@ -172,52 +157,77 @@ public class CandidateServiceImpl implements CandidateService {
     }
 
     @Override
-    public List<ExperienceDTO> candidateExperiance(double candidateExperiance) {
-//        EntityManagerFactory emf;
-//        EntityManager em = emf.createEntityManager();
-//        em.getTransaction().begin();
-//            List postDTOs = em
-//            .createNativeQuery(
-//                    "select " +
-//                            "       p.id as \"id\", " +
-//                            "       p.title as \"title\" " +
-//                            "from Post p " +
-//                            "where p.created_on > :fromTimestamp")
-//
-//            .unwrap( org.hibernate.query.NativeQuery.class )
-//            .setResultTransformer( Transformers.aliasToBean( Test.class ) )
-//            .getResultList();
+    public List<CandidateDTO> cabdidateCoreLanguage(String corelanguage) {
+        List<Candidate> candidates = candidateRepository.cabdidateCoreLanguage(corelanguage);
+        List<CandidateDTO> candidateDTOS = new ArrayList<>();
+        return findAll(candidates, candidateDTOS);
 
 
-
-
-        List<Experience> experiences = experienceRepository.candidateExperiance(candidateExperiance);
-        List<ExperienceDTO> experienceDTOS=new ArrayList<>();
-        System.out.println(experiences.size());
-
-        Experience dduaVo = (Experience) experiences.get(0);
-        System.out.println(dduaVo);
-//        for(int test=0;test<experiences.size();test++){
-//            System.out.println(experiences.get(test));
-//        }
-
-       // ExperienceDTO experienceDTO = new ExperienceDTO();
-
-        //System.out.println(experiences);
-//        for (Experience experience : experiences) {
-//            ExperienceDTO experienceDTO = new ExperienceDTO(experience.getExperienceId(), experience.getCompanyName(), experience.getDesignation(), experience.getPeriod());
-//            System.out.println(experienceDTO);
-//        }
-
-
-        for (int i=0;i<experiences.size();i++){
-            experienceDTOS.add(new ExperienceDTO());
-            BeanUtils.copyProperties(experiences.get(i),experienceDTOS.get(i));
-        }
-
-        return experienceDTOS;
     }
 
+    @Override
+    public List<CandidateDTO> cabdidateDevelopField(String developField) {
+        List<Candidate> candidates = candidateRepository.cabdidateDevelopField(developField);
+        List<CandidateDTO> candidateDTOS = new ArrayList<>();
+        return findAll(candidates, candidateDTOS);
+    }
+
+    @Override
+    public List<CandidateDTO> cabdidateCoreLanguageAndField(String corelanguage, String developField) {
+
+        List<Candidate> candidates = candidateRepository.cabdidateCoreLanguageAndField(corelanguage,developField);
+        List<CandidateDTO> candidateDTOS = new ArrayList<>();
+        return findAll(candidates, candidateDTOS);
+    }
+
+
+    @Override
+    public List<CandidateDTO> getCandidateExperience(double candidateExperiance) {
+        List<ExperiancePeriodDTO> experiancePeriodDTOS = customRepository.fetchExperiencePeriod(candidateExperiance);
+        List<CandidateDTO> candidateDTOList = new ArrayList<>();
+        for (ExperiancePeriodDTO experiancePeriodDTO : experiancePeriodDTOS) {
+            String candidateNic = experiancePeriodDTO.getCandidateNic();
+            CandidateDTO candidate = findCandidate(candidateNic);
+            candidateDTOList.add(candidate);
+        }
+        return candidateDTOList;
+    }
+
+    @Override
+    public List<CandidateDTO> getExperiencePeriodandCoreLanguage(double candidateExperiance, String coreLanguage) {
+        List<ExperiancePeriodDTO> experiancePeriodDTOS = customRepository.fetchExperiencePeriodandCoreLanguage(candidateExperiance,coreLanguage);
+        List<CandidateDTO> candidateDTOList = new ArrayList<>();
+        for (ExperiancePeriodDTO experiancePeriodDTO : experiancePeriodDTOS) {
+            String candidateNic = experiancePeriodDTO.getCandidateNic();
+            CandidateDTO candidate = findCandidate(candidateNic);
+            candidateDTOList.add(candidate);
+        }
+        return candidateDTOList;
+    }
+
+    @Override
+    public List<CandidateDTO> getExperiencePeriodanddevelopField(double candidateExperiance, String developField) {
+        List<ExperiancePeriodDTO> experiancePeriodDTOS = customRepository.fetchExperiencePeriodanddevelopField(candidateExperiance,developField);
+        List<CandidateDTO> candidateDTOList = new ArrayList<>();
+        for (ExperiancePeriodDTO experiancePeriodDTO : experiancePeriodDTOS) {
+            String candidateNic = experiancePeriodDTO.getCandidateNic();
+            CandidateDTO candidate = findCandidate(candidateNic);
+            candidateDTOList.add(candidate);
+        }
+        return candidateDTOList;
+    }
+
+    @Override
+    public List<CandidateDTO> getExperienceLanguageField(double candidateExperiance, String coreLanguage, String developField) {
+        List<ExperiancePeriodDTO> experiancePeriodDTOS = customRepository.fetchExperienceLanguageField(candidateExperiance,coreLanguage,developField);
+        List<CandidateDTO> candidateDTOList = new ArrayList<>();
+        for (ExperiancePeriodDTO experiancePeriodDTO : experiancePeriodDTOS) {
+            String candidateNic = experiancePeriodDTO.getCandidateNic();
+            CandidateDTO candidate = findCandidate(candidateNic);
+            candidateDTOList.add(candidate);
+        }
+        return candidateDTOList;
+    }
 
     public List<CandidateDTO> findAll(List<Candidate> candidates, List<CandidateDTO> candidateDTOS) {
         for (int i = 0; i < candidates.size(); i++) {
@@ -249,11 +259,51 @@ public class CandidateServiceImpl implements CandidateService {
         return candidateDTOS;
     }
 
+    public CandidateDTO findById(CandidateDTO candidateDTO, Candidate candidate) {
+        List<Experience> experiences = candidate.getExperiences();
 
-    public List<ExperiancePeriodDTO> fetchExperiencePeriod(double candidateExperiance){
-        return dao.fetchExperiencePeriod(candidateExperiance);
+
+        List<ExperienceDTO> experienceDTOS = new ArrayList<>();
+
+        BeanUtils.copyProperties(candidate, candidateDTO);
+
+        //fetch experience list
+        for (int i = 0; i < experiences.size(); i++) {
+            experienceDTOS.add(new ExperienceDTO());
+            BeanUtils.copyProperties(experiences.get(i), experienceDTOS.get(i));
+
+        }
+        candidateDTO.setExperienceDTOList(experienceDTOS);
+        //fetch education list
+        List<Education> educations = candidate.getEducations();
+        List<EducationDTO> educationDTOList = new ArrayList<>();
+        for (int i = 0; i < educations.size(); i++) {
+            educationDTOList.add(new EducationDTO());
+            BeanUtils.copyProperties(educations.get(i), educationDTOList.get(i));
+        }
+
+
+        candidateDTO.setEducationDTOList(educationDTOList);
+
+
+        return candidateDTO;
     }
 
+//    public void saveBackEndLanguages(CandidateDTO candidateDTO) {
+//        List<String> backEndLanguages = candidateDTO.getBackEndLanguages();
+//        String backendcollect = backEndLanguages.stream().collect(Collectors.joining(","));
+//        Candidate candidate = new Candidate();
+//        candidate.setBackEndLanguages(backendcollect);
+//
+//    }
+//
+//    public void saveFrontEndLanguages(CandidateDTO candidateDTO) {
+//        List<String> frontEndLanguages = candidateDTO.getFrontEndLanguages();
+//        String frontendcollect = frontEndLanguages.stream().collect(Collectors.joining(","));
+//        Candidate candidate = new Candidate();
+//        candidate.setFrontEndLanguages(frontendcollect);
+//
+//    }
 
 
 }

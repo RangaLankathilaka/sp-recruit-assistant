@@ -21,6 +21,10 @@ public class CandidateDTO {
     private String candidateAddress;
     private int andidateContact;
     private String candidateEmail;
+    private String coreLanguage;
+    private String frontEndLanguages;
+    private String backEndLanguages;
+    private String developField;
     private Date candidateBday;
     private List<EducationDTO> educationDTOList;
     private List<ExperienceDTO> experienceDTOList;

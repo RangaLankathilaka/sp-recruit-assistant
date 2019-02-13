@@ -31,11 +31,36 @@ public class CandidateController {
         return candidateService.cabdidateAddressLike(candidateAddress);
     }
 
-    @GetMapping(params = {"action=search", "candidateExperiance"})
-    public List<ExperiancePeriodDTO> candidateExperiance(@RequestParam("candidateExperiance") double candidateExperiance) {
-        return candidateService.fetchExperiencePeriod(candidateExperiance);
+    @GetMapping(params = {"action=search", "corelanguage"})
+    public List<CandidateDTO> cabdidateCoreLanguage(@RequestParam("corelanguage") String corelanguage) {
+        return candidateService.cabdidateCoreLanguage(corelanguage);
     }
 
+    @GetMapping(params = {"action=search", "developField"})
+    public List<CandidateDTO> cabdidateDevelopField(@RequestParam("developField") String developField) {
+        return candidateService.cabdidateDevelopField(developField);
+    }
+
+    @GetMapping(params = {"action=search", "developField","corelanguage"})
+    public List<CandidateDTO> cabdidateCoreLanguageAndField(@RequestParam("corelanguage") String corelanguage,@RequestParam("developField") String developField) {
+        return candidateService.cabdidateCoreLanguageAndField(corelanguage,developField);
+    }
+
+
+    @GetMapping(params = {"action=search", "yearOfExperience"})
+    public List<CandidateDTO> getCandidateExperience(@RequestParam("yearOfExperience") double yearOfExperience) {
+        return candidateService.getCandidateExperience(yearOfExperience);
+    }
+
+    @GetMapping(params = {"action=search", "yearOfExperience","corelanguage"})
+    public List<CandidateDTO> getExperiencePeriodandCoreLanguage(@RequestParam("yearOfExperience") double yearOfExperience, @RequestParam("corelanguage")String coreLanguage) {
+        return candidateService.getExperiencePeriodandCoreLanguage(yearOfExperience,coreLanguage);
+    }
+
+    @GetMapping(params = {"action=search", "yearOfExperience","developField"})
+    public List<CandidateDTO> getExperiencePeriodandDevelopField(@RequestParam("yearOfExperience") double yearOfExperience, @RequestParam("developField")String developField) {
+        return candidateService.getExperiencePeriodanddevelopField(yearOfExperience,developField);
+    }
 
 
     @PutMapping(value = "/{candidateNic}")
