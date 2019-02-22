@@ -3,20 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="affebdc0-5385-4dbd-a034-0e9d1be2e310" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ajax.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/controller/CandidateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/controller/CandidateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/dto/CandidateDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/dto/CandidateDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/entity/Candidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/entity/Candidate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/CandidateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/CandidateRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/CustomRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/GenericDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/GenericRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/service/CandidateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/service/CandidateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/service/impl/CandidateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/home/kulunu/service/impl/CandidateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/home/kulunu/controller/CandidateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/home/kulunu/controller/CandidateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/home/kulunu/repository/Dao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/home/kulunu/repository/GenericDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/home/kulunu/service/CandidateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/home/kulunu/service/CandidateService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/home/kulunu/service/impl/CandidateServiceImpl.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,7 +19,7 @@
       <file leaf-file-name="CandidateRepository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/CandidateRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="255">
               <caret line="21" column="93" selection-start-line="21" selection-start-column="81" selection-end-line="21" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -41,11 +28,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CandidateServiceImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CandidateServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/service/impl/CandidateServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="208" column="33" selection-start-line="208" selection-start-column="33" selection-end-line="208" selection-end-column="33" />
+            <state relative-caret-position="185">
+              <caret line="260" column="79" selection-start-line="260" selection-start-column="79" selection-end-line="260" selection-end-column="79" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Candidate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/entity/Candidate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-86">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,12 +55,10 @@
       <file leaf-file-name="CustomRepository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/CustomRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="86" column="133" lean-forward="true" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="133" />
+            <state relative-caret-position="1292">
+              <caret line="86" column="133" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="133" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1954#1955#0" expanded="true" />
-                <element signature="e#1990#1991#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,27 +67,8 @@
       <file leaf-file-name="ExperiancePeriodDTO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/dto/ExperiancePeriodDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-189">
-              <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="32" />
-              <folding>
-                <element signature="e#354#355#0" expanded="true" />
-                <element signature="e#383#384#0" expanded="true" />
-                <element signature="e#427#428#0" expanded="true" />
-                <element signature="e#463#464#0" expanded="true" />
-                <element signature="e#502#503#0" expanded="true" />
-                <element signature="e#537#538#0" expanded="true" />
-                <element signature="e#593#594#0" expanded="true" />
-                <element signature="e#641#642#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EducationDTO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/dto/EducationDTO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="22" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="22" />
+            <state relative-caret-position="102">
+              <caret line="6" column="32" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -99,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/dto/CompanyDTO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -116,7 +94,7 @@
       <file leaf-file-name="CandidateController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/controller/CandidateController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
+            <state relative-caret-position="901">
               <caret line="61" column="96" selection-start-line="61" selection-start-column="84" selection-end-line="61" selection-end-column="96" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -125,10 +103,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CandidateService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CompanyController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/controller/CompanyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CandidateService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/service/CandidateService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
+            <state relative-caret-position="510">
               <caret line="35" column="118" selection-start-line="35" selection-start-column="118" selection-end-line="35" selection-end-column="118" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -206,10 +196,10 @@
         <option value="$PROJECT_DIR$/src/main/java/lk/home/kulunu/dto/CandidateDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/CandidateRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/lk/home/kulunu/dto/ExperienceCandidateId.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lk/home/kulunu/service/impl/CandidateServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/lk/home/kulunu/controller/CandidateController.java" />
         <option value="$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/CustomRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/lk/home/kulunu/service/CandidateService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lk/home/kulunu/service/impl/CandidateServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -229,7 +219,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="879" />
     <option name="y" value="274" />
     <option name="width" value="961" />
@@ -243,9 +233,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -372,6 +360,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -381,7 +371,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/Angular/ng-pos-frontend" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -480,12 +470,14 @@
       <workItem from="1544860222432" duration="5062000" />
       <workItem from="1544865438047" duration="1689000" />
       <workItem from="1549691904570" duration="1517000" />
-      <workItem from="1549693876037" duration="109066000" />
+      <workItem from="1549693876037" duration="109924000" />
+      <workItem from="1550153114662" duration="3594000" />
+      <workItem from="1550562809704" duration="6875000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117334000" />
+    <option name="totallyTimeSpent" value="128661000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -510,13 +502,12 @@
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3943355" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3943355" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18017058" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1913646" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -524,6 +515,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,9 +567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -613,9 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1190">
           <caret line="76" column="109" selection-start-line="76" selection-start-column="109" selection-end-line="76" selection-end-column="109" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -630,9 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="84" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -640,9 +623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -650,11 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#241#242#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -676,9 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -686,9 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -696,9 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -798,16 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/controller/CompanyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/dto/ExperienceDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -819,9 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="69" selection-start-line="69" selection-end-line="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -829,9 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -846,33 +796,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="30" selection-start-line="30" selection-end-line="41" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/ao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/ao.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/GenericRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/entity/Candidate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="29" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -886,31 +817,15 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/dto/CompanyDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="21" column="31" lean-forward="true" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/dto/ExperienceCandidateId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="58" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/dto/ExperienceCandidateId.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/dto/ExperiancePeriodDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-189">
-          <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="32" />
-          <folding>
-            <element signature="e#354#355#0" expanded="true" />
-            <element signature="e#383#384#0" expanded="true" />
-            <element signature="e#427#428#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#502#503#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
-            <element signature="e#593#594#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -921,29 +836,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/service/impl/CandidateServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="208" column="33" selection-start-line="208" selection-start-column="33" selection-end-line="208" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/controller/CandidateController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="61" column="96" selection-start-line="61" selection-start-column="84" selection-end-line="61" selection-end-column="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/CandidateRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="255">
           <caret line="21" column="93" selection-start-line="21" selection-start-column="81" selection-end-line="21" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -953,20 +848,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/repository/CustomRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="86" column="133" lean-forward="true" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="133" />
+        <state relative-caret-position="1292">
+          <caret line="86" column="133" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="133" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1954#1955#0" expanded="true" />
-            <element signature="e#1990#1991#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/service/CandidateService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
+        <state relative-caret-position="510">
           <caret line="35" column="118" selection-start-line="35" selection-start-column="118" selection-end-line="35" selection-end-column="118" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/controller/CandidateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="61" column="96" selection-start-line="61" selection-start-column="84" selection-end-line="61" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/controller/CompanyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/entity/Candidate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-86">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lk/home/kulunu/service/impl/CandidateServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="260" column="79" selection-start-line="260" selection-start-column="79" selection-end-line="260" selection-end-column="79" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

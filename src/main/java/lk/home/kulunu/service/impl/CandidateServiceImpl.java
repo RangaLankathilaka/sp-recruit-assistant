@@ -1,10 +1,7 @@
 package lk.home.kulunu.service.impl;
 
 import lk.home.kulunu.dto.*;
-import lk.home.kulunu.entity.Candidate;
-import lk.home.kulunu.entity.Company_Candidate;
-import lk.home.kulunu.entity.Education;
-import lk.home.kulunu.entity.Experience;
+import lk.home.kulunu.entity.*;
 import lk.home.kulunu.repository.CandidateRepository;
 import lk.home.kulunu.repository.CustomRepository;
 import lk.home.kulunu.repository.ExperienceRepository;
@@ -230,31 +227,73 @@ public class CandidateServiceImpl implements CandidateService {
     }
 
     public List<CandidateDTO> findAll(List<Candidate> candidates, List<CandidateDTO> candidateDTOS) {
-        for (int i = 0; i < candidates.size(); i++) {
-            List<ExperienceDTO> experienceDTOS = new ArrayList<>();
+//        for (int i = 0; i < candidates.size(); i++) {
+//            List<ExperienceDTO> experienceDTOS = new ArrayList<>();
+//            List<EducationDTO> educationDTOList = new ArrayList<>();
+//            candidateDTOS.add(new CandidateDTO());
+//            BeanUtils.copyProperties(candidates.get(i), candidateDTOS.get(i));
+//
+//            //fetch experience
+//            List<Experience> experiences = candidates.get(i).getExperiences();
+//            for (int j = 0; j < experiences.size(); j++) {
+//                experienceDTOS.add(new ExperienceDTO());
+//                BeanUtils.copyProperties(experiences.get(j), experienceDTOS.get(j));
+//
+//            }
+//            candidateDTOS.get(i).setExperienceDTOList(experienceDTOS);
+//
+//            // fetch education
+//            List<Education> educations = candidates.get(i).getEducations();
+//            for (int k = 0; k < educations.size(); k++) {
+//                educationDTOList.add(new EducationDTO());
+//                BeanUtils.copyProperties(educations.get(k), educationDTOList.get(k));
+//            }
+//            candidateDTOS.get(i).setEducationDTOList(educationDTOList);
+//
+//
+//        }
+
+
+
+        candidates.forEach(candidate -> {
             List<EducationDTO> educationDTOList = new ArrayList<>();
-            candidateDTOS.add(new CandidateDTO());
-            BeanUtils.copyProperties(candidates.get(i), candidateDTOS.get(i));
+            List<ExperienceDTO> experienceDTOList=new ArrayList<>();
+            List<Company_CandidateDTO> company_candidateList=new ArrayList<>();
+            CandidateDTO candidateDTO=new CandidateDTO();
 
-            //fetch experience
-            List<Experience> experiences = candidates.get(i).getExperiences();
-            for (int j = 0; j < experiences.size(); j++) {
-                experienceDTOS.add(new ExperienceDTO());
-                BeanUtils.copyProperties(experiences.get(j), experienceDTOS.get(j));
+            //education
+            candidate.getEducations().forEach(education -> {
+                EducationDTO educationDTO=new EducationDTO();
+                BeanUtils.copyProperties(education,educationDTO);
+                educationDTOList.add(educationDTO);
+            });
+            candidateDTO.setEducationDTOList(educationDTOList);
 
-            }
-            candidateDTOS.get(i).setExperienceDTOList(experienceDTOS);
+            //experience
+            candidate.getExperiences().forEach(experience -> {
+                ExperienceDTO experienceDTO=new ExperienceDTO();
+                BeanUtils.copyProperties(experience,experienceDTO);
+                experienceDTOList.add(experienceDTO);
 
-            // fetch education
-            List<Education> educations = candidates.get(i).getEducations();
-            for (int k = 0; k < educations.size(); k++) {
-                educationDTOList.add(new EducationDTO());
-                BeanUtils.copyProperties(educations.get(k), educationDTOList.get(k));
-            }
-            candidateDTOS.get(i).setEducationDTOList(educationDTOList);
+            });
+
+            candidateDTO.setExperienceDTOList(experienceDTOList);
+
+            //company_candidate
+            candidate.getCompany_candidate().forEach(company_candidate -> {
+                Company_CandidateDTO company_candidateDTO=new Company_CandidateDTO();
+                BeanUtils.copyProperties(company_candidate,company_candidateDTO);
+                company_candidateList.add(company_candidateDTO);
+            });
+            candidateDTO.setCompany_candidateDTOS(company_candidateList);
+
+            //common properties
+            BeanUtils.copyProperties(candidate,candidateDTO);
+            candidateDTOS.add(candidateDTO);
+
+        } );
 
 
-        }
 
         return candidateDTOS;
     }
